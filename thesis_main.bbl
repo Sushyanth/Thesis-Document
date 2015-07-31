@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+
+\bibitem{akyildiz2002wireless}
+I.~F. Akyildiz, W.~Su, Y.~Sankarasubramaniam, and E.~Cayirci, ``Wireless sensor
+  networks: a survey,'' {\em Computer networks}, vol.~38, no.~4, pp.~393--422,
+  2002.
+
+\bibitem{torres2006energy}
+M.~G.~C. Torres, {\em Energy consumption in wireless sensor networks using
+  gsp}.
+\newblock PhD thesis, University of Pittsburgh, 2006.
+
+\bibitem{heinzelman2002application}
+W.~B. Heinzelman, A.~P. Chandrakasan, and H.~Balakrishnan, ``An
+  application-specific protocol architecture for wireless microsensor
+  networks,'' {\em Wireless Communications, IEEE Transactions on}, vol.~1,
+  no.~4, pp.~660--670, 2002.
+
+\bibitem{abbasi2007survey}
+A.~A. Abbasi and M.~Younis, ``A survey on clustering algorithms for wireless
+  sensor networks,'' {\em Computer communications}, vol.~30, no.~14,
+  pp.~2826--2841, 2007.
+
+\bibitem{rajagopalan2006data}
+R.~Rajagopalan and P.~K. Varshney, ``Data aggregation techniques in sensor
+  networks: A survey,'' 2006.
+
+\bibitem{ji2014data}
+S.~Ji, J.~S. He, and Z.~Cai, ``Data gathering in wireless sensor networks,'' in
+  {\em The Art of Wireless Sensor Networks}, pp.~535--565, Springer, 2014.
+
+\bibitem{chou2009energy}
+C.~T. Chou, R.~Rana, and W.~Hu, ``Energy efficient information collection in
+  wireless sensor networks using adaptive compressive sensing,'' in {\em Local
+  Computer Networks, 2009. LCN 2009. IEEE 34th Conference on}, pp.~443--450,
+  IEEE, 2009.
+
+\bibitem{abuarqoub2012overview}
+A.~Abuarqoub, M.~Hammoudeh, and T.~Alsboui, ``An overview of information
+  extraction from mobile wireless sensor networks,'' in {\em Internet of
+  Things, Smart Spaces, and Next Generation Networking}, pp.~95--106, Springer,
+  2012.
+
+\bibitem{galluccio2008efficient}
+L.~Galluccio, S.~Palazzo, and A.~T. Campbell, ``Efficient data aggregation in
+  wireless sensor networks: an entropy-driven analysis,'' in {\em Personal,
+  Indoor and Mobile Radio Communications, 2008. PIMRC 2008. IEEE 19th
+  International Symposium on}, pp.~1--6, IEEE, 2008.
+
+\bibitem{sinha2013performance}
+A.~Sinha and D.~K. Lobiyal, ``Performance evaluation of data aggregation for
+  cluster-based wireless sensor network,'' {\em Human-Centric Computing and
+  Information Sciences}, vol.~3, no.~1, pp.~1--17, 2013.
+
+\bibitem{heinzelman2000energy}
+W.~R. Heinzelman, A.~Chandrakasan, and H.~Balakrishnan, ``Energy-efficient
+  communication protocol for wireless microsensor networks,'' in {\em System
+  sciences, 2000. Proceedings of the 33rd annual Hawaii international
+  conference on}, pp.~10--pp, IEEE, 2000.
+
+\bibitem{lindsey2002pegasis}
+S.~Lindsey and C.~S. Raghavendra, ``Pegasis: Power-efficient gathering in
+  sensor information systems,'' in {\em Aerospace conference proceedings, 2002.
+  IEEE}, vol.~3, pp.~3--1125, IEEE, 2002.
+
+\bibitem{younis2004heed}
+O.~Younis and S.~Fahmy, ``Heed: a hybrid, energy-efficient, distributed
+  clustering approach for ad hoc sensor networks,'' {\em Mobile Computing, IEEE
+  Transactions on}, vol.~3, no.~4, pp.~366--379, 2004.
+
+\bibitem{muruganathan2005centralized}
+S.~D. Muruganathan, D.~C. Ma, R.~I. Bhasin, and A.~Fapojuwo, ``A centralized
+  energy-efficient routing protocol for wireless sensor networks,'' {\em
+  Communications Magazine, IEEE}, vol.~43, no.~3, pp.~S8--13, 2005.
+
+\bibitem{rago1996censoring}
+C.~Rago, P.~Willett, and Y.~Bar-Shalom, ``Censoring sensors: A
+  low-communication-rate scheme for distributed detection,'' {\em Aerospace and
+  Electronic Systems, IEEE Transactions on}, vol.~32, no.~2, pp.~554--568,
+  1996.
+
+\bibitem{jiang2005fusion}
+R.~Jiang and B.~Chen, ``Fusion of censored decisions in wireless sensor
+  networks,'' {\em Wireless Communications, IEEE Transactions on}, vol.~4,
+  no.~6, pp.~2668--2673, 2005.
+
+\bibitem{axell2012spectrum}
+E.~Axell, G.~Leus, E.~G. Larsson, and H.~V. Poor, ``Spectrum sensing for
+  cognitive radio: State-of-the-art and recent advances,'' {\em Signal
+  Processing Magazine, IEEE}, vol.~29, no.~3, pp.~101--116, 2012.
+
+\bibitem{maleki2011energy}
+S.~Maleki, A.~Pandharipande, and G.~Leus, ``Energy-efficient distributed
+  spectrum sensing for cognitive sensor networks,'' {\em Sensors Journal,
+  IEEE}, vol.~11, no.~3, pp.~565--573, 2011.
+
+\bibitem{cho2001energy}
+S.~Cho and A.~P. Chandrakasan, ``Energy efficient protocols for low duty cycle
+  wireless microsensor networks,'' in {\em Acoustics, Speech, and Signal
+  Processing, 2001. Proceedings.(ICASSP'01). 2001 IEEE International Conference
+  on}, vol.~4, pp.~2041--2044, IEEE, 2001.
+
+\bibitem{hu2006deploying}
+W.~Hu, C.~T. Chou, S.~Jha, and N.~Bulusu, ``Deploying long-lived and
+  cost-effective hybrid sensor networks,'' {\em Ad Hoc Networks}, vol.~4,
+  no.~6, pp.~749--767, 2006.
+
+\bibitem{suthaharan2010labelled}
+S.~Suthaharan, M.~Alzahrani, S.~Rajasegarar, C.~Leckie, and M.~Palaniswami,
+  ``Labelled data collection for anomaly detection in wireless sensor
+  networks,'' in {\em Intelligent sensors, sensor networks and information
+  processing (ISSNIP), 2010 sixth international conference on}, pp.~269--274,
+  IEEE, 2010.
+
+\bibitem{BodikGuestrinEtAl2004}
+P.~Bodik, C.~Guestrin, W.~Hong, S.~Madden, M.~Paskin, and R.~Thibaux, ``{Intel
+  Lab Data},'' 2004.
+
+\end{thebibliography}

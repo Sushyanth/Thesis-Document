@@ -1,0 +1,139 @@
+The main goal of a WSN is to collect data from the sensing environment
+and send it to the end user for analysis. Research to maximize this
+information being collected has led to development of several models
+\cite{abuarqoub2012overview}. Generally, in order to increase the
+overall information to be gathered, the sensors will have to sense
+more and transmit that sensed information to the sink. We know that
+energy conservation of sensor nodes is vital in WSNs and we cannot
+afford the communication costs to be high, as it will lead to
+depletion of the network sooner than expected. There have only been a
+handful of papers published considering both these issues together.
+Our approach is the first to implement a VoI-based technique in
+centralized networks, in order to address increasing the information
+gathered while simultaneously reducing overall communications. Before
+we take a look at our technical approach, we will look at some of the
+recent work done in these areas.
+
+Various techniques are employed among multi-hop communication
+approaches, such as sensor shutdowns and censoring, are usually used
+to increase the energy-efficiency in WSNs. We should keep in mind that
+energy management in WSNs involves not only reducing the energy
+consumption of a single sensor node but also maximizing the lifetime
+of the entire network.
+
+Data aggregation is one approach, which considers the problem of
+sending redundant information to the sink and aims to reduce such
+information reaching the sink. Several data aggregation techniques can
+be seen in \cite{rajagopalan2006data}, where authors show how
+redundant data proves to be expensive in terms of system performance,
+energy consumption and congestion. However, authors in
+\cite{galluccio2008efficient} have proven that aggregation implies
+performing more complex operations than simply relaying traffic, and
+this can lead to an increase, rather than a decrease, in the overall
+energy consumption. Also, higher aggregation could be costly in terms
+of loss of information.
+
+In \cite{sinha2013performance}, authors propose a distributed
+entropy-based data aggregation model with the aim of sending only
+surprising information to the sink node. This is one work closely
+related to our approach as authors use propose local and global
+probability models for computing entropy. We, on the other hand,
+calculate entropy of the data and use a probability approach to
+increase the amount of information gathered from the system by
+reducing the overall transmissions. In \cite{sinha2013performance},
+authors use the entropy computed in data aggregation and from
+\cite{galluccio2008efficient}, we know that aggregation is not easy to
+handle. In contrast, we use the entropy calculated to consistently
+select the most informative sensor at every instant thereby increasing
+the overall information gathered.
+
+In \cite{chou2009energy}, authors propose an adaptive algorithm based
+on ``Adaptive Compressive Sensing" to obtain an accurate
+approximation of the sensing field with minimum energy consumption as
+possible. Here, the sink node makes projections to the sensor nodes if
+the readings transmitted by them are not satisfactory. Authors jointly
+optimize the routing and compression to obtain optimal measurement,
+which greatly increases the complexity.  On the other hand, our VoI
+based approach uses entropy to firstly, determine the theoretical
+maximum amount of information available and secondly, to randomly identify
+the informative sensors based on their weighted VoI. From the results shown
+below, we show that our model is on course to reach the theoretical maximum
+computed which means we will have a very accurate measure of the environment
+being sensed depending on the number of transmissions.
+
+Clustering is another approach where several techniques have been
+proposed, particularly to increase the energy-efficiency. The main
+goal is to reduce the number of transmissions by sending information
+collected by each sensor of a cluster to a particular sensor, called a
+cluster head (CH). CHs are usually responsible for processing,
+filtering, aggregating and transmitting non-redundant information to
+the sink node \cite{heinzelman2000energy} \cite{lindsey2002pegasis}
+\cite{younis2004heed}. Authors in \cite{muruganathan2005centralized}
+propose a clustering approach in a centralized WSN to increase the
+energy-efficiency. Here, CHs are chosen based on the amount of energy
+available to the sensors. This means that every sensor within the
+network has to have on-board processing abilities, which may impose
+higher costs on the network's energy budget than it can afford.
+Moreover, allocation of additional resources to the elected CH is a
+problem, as it should have the abilities to perform additional tasks
+and transmit information to the sink node.
+
+On the other hand, our approach assumes the CN to be responsible for
+performing the computations, leaving the sensor nodes to gather
+information and send it to the CN upon request. We increase the amount
+of information gathered from the system by calculating the entropy of
+the data and using it to randomly query the sensors based on the current
+weighted VoI. Moreover, our approach does not consider any inter-cluster
+communications to be involved thereby further reducing the transmissions
+and hence saving energy. We compare the implementation of our model to
+the model proposed in \cite{muruganathan2005centralized}, where performance
+improvement can be clearly observed.
+	
+%WORK ON EQUATION
+%\begin{equation}
+%\(Energy consumption (for \cite{maleki2011energy}) = Energy for (Gathering + Computation + Start-Up + Transmission)\)
+%\end{equation}
+Recently, self-censoring has become a major focus of research. This is
+a distributed, in-network processing technique where sensors function
+independently and are responsible for performing computations to
+determine whether to send data to the sink node or not
+\cite{rago1996censoring} \cite{jiang2005fusion}
+\cite{axell2012spectrum}.  In this scheme, sensors only send
+measurements that are deemed sufficiently informative, thereby
+reducing the number of transmissions being made by the sensors. In
+\cite{maleki2011energy}, authors implement a sleep/wake mechanism in
+the state-of-the-art self-censoring technique to enhance the energy
+efficiency. Here, a sleeping and censoring combined scheme is proposed
+to jointly optimize the energy consumption cost under the optimal
+sleeping constraint and the censoring thresholds. However, authors in
+\cite{cho2001energy} have proved that sensor start-up can consume more
+energy than information transmission. Using this demonstration, we can
+say that each sensor consumes energy for gathering information,
+performing computation, sensor start-up or wake-up and for
+transmitting information, hence depleting the node faster than normal.
+	
+Our approach, in comparison, considers a model wherein sensors consume
+energy only for sensing and transmitting information to the sink
+node. Our approach considers the information content of every sensor's
+readings, calculates the entropy for the information, and uses a
+probabilistic approach to select the most informative sensor
+consistently.
+
+In \cite{rago1996censoring}, a censoring approach is used to reduce
+the number of transmissions to the sink.  They propose a model based
+on the likelihood ratio (LR). Sensors only transmit information to the
+sink node if the information gathered by the sensor exceeds the LR
+determined. LR is calculated using the following equation
+\begin{equation}
+LR = (Sensitivity) / (1-Specificity) %NUMBER!!!!            (1)
+\end{equation}
+This can be explained as the dual of the ratio of the probability of
+false positives and false negatives.
+
+Our model, on the other hand, uses a VoI-based technique using entropy
+to determine information in the system. This entropy determines the
+sensor to be selected for querying, and our model increases the
+information gathered using fewer communications (or ``pings''),
+therefore improving the energy-efficiency. Simulation results show how
+our approach outperforms this model by gathering more amount of
+information per ping.

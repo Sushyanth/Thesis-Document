@@ -1,0 +1,112 @@
+%&pdflatex
+\documentclass[12pt]{okstate-thesis}
+\usepackage{graphicx}
+%\usepackage[draft]{graphicx}
+%\usepackage{subfigure}
+%\usepackage{verbatim}
+%\usepackage{enumerate}
+%\usepackage{amsmath}
+%\usepackage{amscd}
+%\usepackage{array}
+%\usepackage{color}
+%\usepackage{amsxtra}
+%\usepackage{amstext}
+%\usepackage{amssymb}
+%\usepackage{hyperref}
+%\usepackage{mathrsfs}
+%\usepackage{latexsym}
+%\usepackage{newlfont}
+%\usepackage{indentfirst,color}
+%\usepackage{doublespace}
+%
+\suppressfloats %\nofiles
+
+
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an %indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+\graphicspath{{New_Images/}}
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{fixltx2e}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+
+
+\title{A Centralized Energy-Efficient Model for Increasing the Information Gathered in Wireless Sensor Networks}
+
+\author{Sushyanth Pamulaparthy}
+
+\degreeone{Bachelor of Technology in Information Technology \\
+        Jawaharlal Nehru Technological University \\
+        Hyderabad, Telangana, India \\
+        2013}
+        
+%\degreetwo{Bachelor of Nothing in Foo\\
+%        Prestigious University\\
+%        My head, Universe\\
+%        2012}
+\degreesought{Master of Science}
+\degreedate{July, 2015}
+\majorfield{Computer Science}
+\adviser{Dr. Christopher Crick}
+\chairOne{Dr. Eric Chan-Tin}
+\chairTwo{Dr. Johnson Thomas}
+%\chairThree{name 3}
+%\chairFour{name}
+% If you've got more you're screwed anyway, but you can read the class file
+% to figure it out.
+%
+\begin{document}
+\frontmatter
+\maketitle
+\makeapproval{3} % Number denotes total number of required signatures (max 5)
+
+
+\begin{acknowledge}
+    \input{Acknowledgments}
+    \\[10\baselineskip]
+\end{acknowledge}
+\begin{abstract} % Creates abstract
+    \input{Abstract}
+\end{abstract}
+\tableofcontents
+%\listoftables
+\listoffigures
+%\msp    %========  single space text.
+        %========  For the final version, this command should not be used.
+
+%\makeapproval{5}\addtocounter{placeholder}{-1}    %% Comment this in the final copy. This is for electronic copy
+%\begin{nomenclature}
+%	\input{notation}
+%\end{nomenclature}
+
+%====================== main  body of the dissertation ==========================
+\mainmatter
+\chapter{INTRODUCTION}
+\input{Introduction}
+\label{intro}
+\chapter{REVIEW OF LITERATURE}
+\input{ReviewofLiterature}
+\chapter{METHODOLOGY}
+\input{Methodology}
+\label{methodology}
+\chapter{FINDINGS}
+\input{Findings}
+\chapter{CONCLUSION}
+\input{Conclusion}
+%
+\nocite{*} % Use to exclude specific citations from *.bib file
+\bibliography{References}
+\bibliographystyle{ieeetr}%{alpha}%{ieeetr}%%
+%\appendix
+%\input{appendix}
+\input{Vita}
+%       \pagestyle{empty}
+
+\end{document}

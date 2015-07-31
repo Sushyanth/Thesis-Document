@@ -1,0 +1,164 @@
+As we have seen in the previous section, research incorporating both
+information extraction and energy-efficiency in WSNs is limited,
+particularly in centralized networks. In this paper, we consider a WSN
+organized in a centralized fashion, where all the sensor nodes are
+deployed over a wide area. There can be multiple central nodes
+(denoted by CN) depending on the area and number of sensor nodes being
+deployed. However, we will be considering only one CN for the networks
+we are dealing with in this paper. In this paper, we assume that all
+sensors have the same sensing range and consume the same energy for
+performing activities like data transmission and reception. Also, we
+assume that the identity and position of each sensor are fixed and
+known both to the CN and the sensor itself. Additionally, we consider
+the CN to have unlimited resources in terms of energy and processing
+abilities. Finally, we assume that energy consumption for sensing is
+negligible, which is a reasonable consideration
+\cite{hu2006deploying}.
+
+In this paper, we will compute the amount of information extracted by
+examining the total number of transmissions required to collect this
+information from the sensing field. This work distinguishes itself
+from existing works \cite{chou2009energy} in that it uses a
+probability-based sensor selection scheme to increase the information
+gathered and to improve the energy-efficiency of the entire network.
+
+\section{Theoretical Maximum VoI (TM\textsubscript {VoI})}
+In order to evaluate the information that our approach is extracting
+from the network, it is important to compute a theoretical maximum for
+the amount of information present within the system.  Doing so also
+provides an idea of the accuracy of a given model's sensing field. We
+obtain the TM\textsubscript {VoI} using an entropy-based approach, as
+shown in Algorithm \ref{tmvoi}. To calculate the TM\textsubscript
+{VoI}, we assume that the CN is able to query each of the sensor nodes
+within the network \emph{whenever} the sensor detects new information.
+We then sum the calculated entropies associated with those
+values. Entropy provides the average amount of information present
+within a message.  TM\textsubscript {VoI} is computed using the
+following algorithm.
+
+\begin{algorithm}
+	\caption{Determining Theoretical Maximum VoI (TM\textsubscript {VoI})}
+        \label{tmvoi}
+	\textbf{Input:} Set of Sensors, SN \newline
+	%TM\textsubscript {VoI}
+	\textbf{Output:} Theoretical Maximum VoI, TM\textsubscript {VoI}
+	 
+	\begin{algorithmic}[1]
+	\For {$i=0$ to $SN.length$}
+	\State $data[i] = (SN[i])$\Comment{Initially, request data from each sensor in SN}
+	\State $H (data[i]) =  P(data[i]) * $log\textsubscript{e}$ (1/P(data[i]))$\Comment{Compute entropy H of each sensor}
+        \State $I[i] = H(data[i])$\Comment{Save the computed entropy in I[i]}
+        \State $TM\textsubscript {VoI} = TM\textsubscript {VoI} + I[i]$\Comment{Finally, add computed information to TM\textsubscript{VoI}}
+        \EndFor %CJC ADDED
+	\end{algorithmic}
+\end{algorithm}
+
+%INSERT ALGORITHM 3.1
+
+\section{Probability Model}
+After computing the TM\textsubscript {VoI} of a network, we use our
+probability model based on weighted random selection to preferentially
+select the most informative sensors at each communication
+opportunity. Using this approach, we do not select information from
+all the sensors at each instant of time; instead we will most often
+select the most informative sensor at that instant. The main goal of
+our work is to gather maximum possible information from a network even
+at a low transmission rate, thereby enabling end users to get a good
+approximation of the network being monitored.  At the same time, we
+demonstrate our model's energy-efficiency on comparison to other
+existing models. Our implementation is clearly outlined in the
+following algorithm.
+
+%\vspace*{-.10cm}
+\begin{algorithm}
+  \caption{Probability-based sensor selection}
+  \label{sensor-selection}
+  \textbf{Input:} Set of sensors, SN \newline
+  \textbf{Output:} Total information in system, I
+  
+  \begin{spacing}{0.8}
+  \begin{algorithmic}[1]
+    %ERROR OCCURING HERE
+    \State{\textbf{Step 1}: Calculate entropy at every instant}
+    \For {$i =0$ to $SN.length$}
+    \State $data[i] = (SN[i])$\Comment{Initially, we request data from each sensor in SN}
+    \State $H (data[i]) =  P(data[i]) * $log\textsubscript{e}$ (1/P(data[i]))$\Comment{Compute entropy H of each sensor}
+    \State $I[i] = H(data[i])$\Comment{Save the computed entropy in I[i]}
+    \EndFor
+    \State{\textbf{Step 2}: Probability model for sensor selection at every instant}
+    \State $I\textsubscript{total\_inst}(P)  = \sum\limits_{i=1}^{SN} I[i]$\Comment{Compute the sum of entropies of all sensors in network}
+    \State $R = random (0, I\textsubscript{total\_inst})$\Comment{Generate a random number between 0 and I\textsubscript{total\_inst}}
+    \State{\textbf{Step 3}: Randomly select the information-weighted sensor}
+    \For {$i=0$ to $SN.length$}
+    \If{R \textless I[i]}
+    \State $I = I + I[i]$\Comment {Select sensor $i$}
+    \Else
+    \State $R = R - I[i]$
+    \EndIf
+    \EndFor
+  \end{algorithmic}
+  \end{spacing}
+\end{algorithm}
+%INSERT ALGORITHM 3.2
+The general idea of Algorithm \ref{sensor-selection} is to select a
+sensor to gather information from at each time point in time by
+rolling a die. We generate a random number between 0 and the current
+VoI gathered from the network, and use it to select a sensor to query,
+weighted by the information content of that sensor. Initially, the CN
+assumes a uniform distribution of information value across all of the
+network's sensors, and queries them all equally often. Sensors
+transmit their current information state to the CN.  The CN now
+computes the entropy of the data received from each of the sensors
+using the formula stated in Algorithm \ref{sensor-selection}.  At the
+next time point, CN repeats step 1 and computes entropy. Now, the CN
+implements the probability model to select a sensor at this
+instant. It does so by adding up the entropies of each sensor. This
+step is similar to determining the discrete cumulative density
+function (CDF). Next, we calculate a random number ranging between 0
+and the sum of entropies. Then, starting from sensor 1, the CN
+subtracts the entropy of sensor 1 from the random number if random
+number is greater than the entropy of sensor 1. If not greater, then
+select sensor 1.  Else, we move to the next sensor and subtract
+entropy from the random number, and repeat this process until a
+sensor's entropy is greater than the reducing random number's
+value. In that case, we choose that sensor to query, and add its
+reading to the overall information of the network. A great benefit of
+using this approach is that it ensures that every sensor is being
+attended to and the entire network is monitored.
+
+Now, let us consider the following example to understand the
+functioning of our algorithms. To determine the TM\textsubscript
+{VoI}, the CN is responsible for identifying sensors where a change
+has been observed and then querying it to retrieve the information.
+The CN then computes the entropy for the data and adds it to the
+overall VoI gathered so far. Assume a network consisting of 5 sensors
+that are randomly deployed to monitor temperatures. At a particular
+instant, each sensor senses the environment and stores the information
+as follows: [21.92, 25.84, 17.08, 11.14, and 38.16].  The CN queries
+each of these sensors and computes the entropy, say, [3, 2, 1, 0, 1],
+and sums each entropy value to calculate a TM\textsubscript {VoI} of
+7. This procedure is repeated at every time step.
+
+Now, using the same example, let us see how our probability model
+functions.  After we calculate the summation of values for a
+particular time step, we generate a random number R between 0 and 7
+(the total information), say 3.24. Now we scan through the array of
+sensors, starting at 1, and select a sensor when its entropy is
+greater than the random number is generated. However, if a sensor's
+entropy is found to be greater, we subtract it from the random number
+and move to the next sensor. So, in the above example, we do not
+select 1, as its entropy is less than the random number. Sensor 2 on
+the other hand is selected as its entropy of 1 is greater than
+0.24. Next, we query sensor 2's current reading and add it to the
+overall information gathered from the network.
+ 
+As you can see, using this algorithm, we will preferentially select
+particularly informative sensors at each time step, while ensuring
+that the entire network is monitored.  This is extremely useful,
+especially when dealing with event-based applications such as
+earthquake monitoring. The main motivation behind our work has been
+energy-efficiency, and with applications increasingly being built with
+a strict energy budget in mind, such as in agriculture or building
+monitoring, an implementation that maximizes the amount of information
+gathered per ping is important.  In the next section we show how our
+model outperforms other state-of-the-art models.

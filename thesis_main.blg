@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis_main.aux
+The style file: ieeetr.bst
+Database file #1: References.bib
+Warning--empty journal in rajagopalan2006data
+You've used 22 entries,
+            1876 wiz_defined-function locations,
+            608 strings with 7873 characters,
+and the built_in function-call counts, 7021 in all, are:
+= -- 728
+> -- 241
+< -- 0
++ -- 88
+- -- 66
+* -- 502
+:= -- 949
+add.period$ -- 23
+call.type$ -- 22
+change.case$ -- 21
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 359
+empty$ -- 664
+format.name$ -- 66
+if$ -- 1725
+int.to.chr$ -- 0
+int.to.str$ -- 22
+missing$ -- 20
+newline$ -- 70
+num.names$ -- 22
+pop$ -- 70
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 271
+stack$ -- 0
+substring$ -- 575
+swap$ -- 160
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 79
+width$ -- 24
+write$ -- 229
+(There was 1 warning)
